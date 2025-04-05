@@ -1,0 +1,242 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .recharts-text {
+    fill: #000000 !important;
+  }
+
+  .dark .recharts-text {
+    fill: #ffffff !important;
+  }
+  :root {
+    --background: 42 33% 95%;
+    --foreground: 340 41% 30%;
+
+    --card: 42 33% 98%;
+    --card-foreground: 340 41% 30%;
+
+    --popover: 42 33% 98%;
+    --popover-foreground: 340 41% 30%;
+
+    --primary: 340 41% 30%;
+    --primary-foreground: 42 33% 95%;
+
+    --secondary: 187 46% 21%;
+    --secondary-foreground: 42 33% 95%;
+
+    --accent: 46 70% 52%;
+    --accent-foreground: 340 41% 30%;
+
+    --muted: 42 20% 90%;
+    --muted-foreground: 340 20% 50%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 42 33% 95%;
+
+    --border: 42 30% 85%;
+    --input: 42 30% 85%;
+    --ring: 340 41% 30%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 7%;
+    --foreground: 42 33% 95%;
+
+    --card: 240 10% 10%;
+    --card-foreground: 42 33% 95%;
+
+    --popover: 240 10% 10%;
+    --popover-foreground: 42 33% 95%;
+
+    --primary: 340 41% 40%;
+    --primary-foreground: 42 33% 95%;
+
+    --secondary: 187 46% 31%;
+    --secondary-foreground: 42 33% 95%;
+
+    --accent: 46 70% 52%;
+    --accent-foreground: 240 10% 7%;
+
+    --muted: 240 10% 15%;
+    --muted-foreground: 42 20% 80%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 42 33% 95%;
+
+    --border: 240 10% 20%;
+    --input: 240 10% 20%;
+    --ring: 340 41% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair text-foreground;
+  }
+  
+  /* Ensure text is visible in both light and dark modes */
+  .prose {
+    @apply text-foreground;
+  }
+  
+  .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+    @apply text-foreground font-bold mb-4;
+  }
+  
+  .prose p, .prose ul, .prose ol, .prose li {
+    @apply text-foreground mb-4;
+  }
+  
+  .prose-sm {
+    @apply text-foreground;
+  }
+  
+  .dark .prose {
+    @apply text-foreground;
+  }
+}
+
+@layer components {
+  .glassmorphism {
+    @apply bg-background/80 backdrop-blur-sm border border-border/50 shadow-md;
+  }
+  
+  .premium-card {
+    @apply glassmorphism rounded-lg p-4 transition-all duration-300 hover:shadow-lg;
+  }
+
+  .gold-accent {
+    @apply text-gold font-semibold;
+  }
+  
+  /* Animation classes */
+  .animate-fade-in {
+    @apply animate-[fadeIn_0.5s_ease-in-out_forwards];
+  }
+  
+  .animate-slide-in {
+    @apply  animate-[slideIn_0.5s_ease-in-out_forwards];
+  }
+  
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+  
+  .hover-elevate {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+  
+  /* Empty state styling */
+  .empty-state {
+    @apply text-center py-6 border rounded-lg p-6 bg-card;
+  }
+  
+  /* Alcohol guide specific styling */
+  .guide-content-wrapper {
+    @apply overflow-hidden;
+  }
+  
+  .guide-content {
+    @apply animate-[fadeSlideUp_0.5s_ease-out_forwards];
+  }
+  
+  .guide-content h4 {
+    @apply text-lg font-semibold text-primary mt-6 mb-3 animate-[fadeSlideUp_0.5s_ease-out_forwards] opacity-0;
+    animation-delay: 0.2s;
+  }
+  
+  .guide-content p {
+    @apply my-3 leading-relaxed animate-[fadeSlideUp_0.5s_ease-out_forwards] opacity-0;
+    animation-delay: 0.3s;
+  }
+  
+  .guide-content ul, .guide-content ol {
+    @apply my-4 pl-6 space-y-2 animate-[fadeSlideUp_0.5s_ease-out_forwards] opacity-0;
+    animation-delay: 0.4s;
+  }
+  
+  .guide-content li {
+    @apply my-1 ml-2;
+  }
+  
+  .guide-content strong {
+    @apply font-semibold text-primary;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.recharts-default-tooltip{
+  background: #ffffff !important;
+  color: black !important;
+}
+
+.golden-shine {
+  font-weight: bold;
+  position: relative;
+  background: linear-gradient(
+        120deg,
+        #B69142 0%,
+        #e0c590 45%,
+        #fff2cc 50%,
+        #e0c590 55%,
+        #B69142 100%
+      );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: shine 2.5s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
